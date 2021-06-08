@@ -41,7 +41,6 @@ except Exception as e:
     error(e)
     sys_exit(1)
     exit(1)
-    arguments['length'] = 41
 
 
 def print_tree():
