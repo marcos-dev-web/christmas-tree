@@ -9,6 +9,8 @@ write = lambda x: stdout.write(x)
 
 clear = lambda: system('clear')
 
+error = lambda x: write('[Error]' + '\033[1;31m ' + str(x) + ' \033[0m\n')
+
 symbols = ["#", "$", "%", "&"]
 colors = ['\033[1;32m', '\033[1;36m', '\033[1;34m', '\033[1;33m']
 tail = False
@@ -28,15 +30,15 @@ try:
                 if argv[index + 1].isnumeric():
                     arguments['length'] = int(argv[index + 1])
                 else:
-                    write('[Error]' + '\033[1;31m' + 'Invalid length' + '\033[0m\n')
+                    error('Invalid length')
                     sys_exit(1)
                     exit(1)
             else:
-                write('[Error]' + '\033[1;31m' + 'Invalid length' + '\033[0m\n')
+                error('Invalid length')
                 sys_exit(1)
                 exit(1)
 except Exception as e:
-    write('[Error]' + '\033[1;31m' + e + '\033[0m')
+    error(e)
     sys_exit(1)
     exit(1)
     arguments['length'] = 41
